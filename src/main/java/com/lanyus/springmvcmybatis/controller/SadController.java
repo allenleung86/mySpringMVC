@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/helloControl")
-public class HelloController {
+@RequestMapping("/sadControl")
+public class SadController {
 	@Resource
 	TestService service;
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", service.print(1));
-		return "hello";
+		model.addAttribute("message", service.print(2));
+		return "sad";
 	}
 }
