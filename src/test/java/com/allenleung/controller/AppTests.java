@@ -1,4 +1,4 @@
-package com.lanyus.springmvcmybatis.controller;
+package com.allenleung.controller;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -5,8 +5,8 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.lanyus.springmvcmybatis.controller"/>
-    <context:component-scan base-package="com.lanyus.springmvcmybatis.service"/>
+    <context:component-scan base-package="com.allenleung.controller"/>
+    <context:component-scan base-package="com.allenleung.service"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
@@ -25,7 +25,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lanyus.springmvcmybatis.dao"/>
+        <property name="basePackage" value="com.allenleung.dao"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

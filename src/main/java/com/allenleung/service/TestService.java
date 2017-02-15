@@ -1,7 +1,7 @@
-package com.lanyus.springmvcmybatis.service;
+package com.allenleung.service;
 
-import com.lanyus.springmvcmybatis.dao.TestMapper;
-import com.lanyus.springmvcmybatis.entity.Test;
+import com.allenleung.dao.TestMapper;
+import com.allenleung.entity.Test;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,4 +1,4 @@
-package com.lanyus.springmvcmybatis.entity;
+package com.allenleung.entity;
 
 public class Test {
     /**

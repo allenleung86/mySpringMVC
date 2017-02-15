@@ -1,6 +1,6 @@
-package com.lanyus.springmvcmybatis.controller;
+package com.allenleung.controller;
 
-import com.lanyus.springmvcmybatis.service.TestService;
+import com.allenleung.service.TestService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

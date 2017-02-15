@@ -1,6 +1,6 @@
-package com.lanyus.springmvcmybatis.dao;
+package com.allenleung.dao;
 
-import com.lanyus.springmvcmybatis.entity.Test;
+import com.allenleung.entity.Test;
 
 public interface TestMapper {
     /**

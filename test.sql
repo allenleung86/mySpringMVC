@@ -28,5 +28,5 @@ CREATE TABLE `test` (
 -- ----------------------------
 -- Records of test
 -- ----------------------------
-INSERT INTO `test` VALUES ('1', 'www.lanyus.com');
-INSERT INTO `test` VALUES ('2', 'blog.lanyus.com');
+INSERT INTO `test` VALUES ('1', 'one.allenleung.tk');
+INSERT INTO `test` VALUES ('2', 'two.allenleung.tk');
