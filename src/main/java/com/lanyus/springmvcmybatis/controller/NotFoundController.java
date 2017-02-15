@@ -3,9 +3,7 @@ package com.lanyus.springmvcmybatis.controller;
 import com.lanyus.springmvcmybatis.service.TestService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 
@@ -19,7 +17,7 @@ public class NotFoundController {
 
 	@RequestMapping("*")
 	public String notFound() {
-        log.info("notFound page!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		return "error/404";
+        log.info("Allen你找不到此页面哦!!!");
+		return "error/404/404";
 	}
 }
