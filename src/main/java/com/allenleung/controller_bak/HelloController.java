@@ -1,6 +1,7 @@
-package com.allenleung.controller;
+package com.allenleung.controller_bak;
 
 import com.allenleung.service.TestService;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,14 +9,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 
+
 @Controller
-@RequestMapping("/sadControl")
-public class SadController {
+@RequestMapping("/helloControl")
+public class HelloController {
+	private static final Logger log = Logger.getLogger(HelloController.class);
+
 	@Resource
 	TestService service;
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", service.print(2));
-		return "sad";
+		String pstr = service.print(1);
+		log.info( "print str: " + pstr );
+		model.addAttribute("message", pstr);
+		return "/WEB-INF/pages_bak/hello.jsp";
 	}
 }

@@ -1,4 +1,4 @@
-package com.allenleung.controller;
+package com.allenleung.controller_bak;
 
 import com.allenleung.service.TestService;
 import org.apache.log4j.Logger;

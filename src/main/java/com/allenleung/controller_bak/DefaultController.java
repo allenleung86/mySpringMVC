@@ -1,4 +1,4 @@
-package com.allenleung.controller;
+package com.allenleung.controller_bak;
 
 import com.allenleung.service.TestService;
 import org.springframework.stereotype.Controller;
@@ -16,6 +16,6 @@ public class DefaultController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", service.print(1));
-		return "default";
+		return "/WEB-INF/pages_bak/default.jsp";
 	}
 }

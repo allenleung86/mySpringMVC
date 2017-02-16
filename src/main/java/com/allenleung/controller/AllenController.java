@@ -11,17 +11,17 @@ import javax.annotation.Resource;
 
 
 @Controller
-@RequestMapping("/helloControl")
-public class HelloController {
-	private static final Logger log = Logger.getLogger(HelloController.class);
+@RequestMapping("/allenCtrl")
+public class AllenController {
+	private static final Logger log = Logger.getLogger(AllenController.class);
 
 	@Resource
 	TestService service;
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-		String pstr = service.print(1);
-		log.info( "print str: " + pstr );
-		model.addAttribute("message", pstr);
-		return "hello";
+	@RequestMapping(value="/sayHello", method = RequestMethod.GET)
+	public String sayHello(ModelMap model) {
+		log.info( "into sayHello" );
+		model.addAttribute( "message", "Allen, sayHello!" );
+
+		return "sayHello";
 	}
 }

@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Welcome to my world</title>
+    <title>Welcome</title>
 </head>
 <body>
-    欢迎来到我的页面
+    欢迎来到我的主页
 </body>
 </html>
