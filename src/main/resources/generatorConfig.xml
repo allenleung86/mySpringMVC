@@ -31,12 +31,14 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
+        <!-- 指定mapper的生成目录 -->
         <sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources">
             <!-- This property is used to select whether MyBatis Generator will generate different Java packages for
       the objects based on the catalog and schema of the introspected table -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
+        <!-- 指定dao层的生成目录 -->
         <javaClientGenerator targetPackage="com.allenleung.dao" targetProject="src/main/java" type="XMLMAPPER">
             <!-- This property is used to select whether MyBatis Generator will generate different Java packages for
       the objects based on the catalog and schema of the introspected table -->

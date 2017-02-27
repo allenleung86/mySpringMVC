@@ -1,6 +1,6 @@
 package com.allenleung.controller_bak;
 
-import com.allenleung.service.TestService;
+import com.allenleung.serviceImpl.TestServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 @RequestMapping("/")
 public class DefaultController {
 	@Resource
-	TestService service;
+	TestServiceImpl service;
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", service.print(1));

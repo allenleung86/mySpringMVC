@@ -1,6 +1,6 @@
 package com.allenleung.controller_bak;
 
-import com.allenleung.service.TestService;
+import com.allenleung.serviceImpl.TestServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,7 +16,7 @@ public class HelloController {
 	private static final Logger log = Logger.getLogger(HelloController.class);
 
 	@Resource
-	TestService service;
+	TestServiceImpl service;
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		String pstr = service.print(1);

@@ -1,6 +1,6 @@
 package com.allenleung.controller_bak;
 
-import com.allenleung.service.TestService;
+import com.allenleung.serviceImpl.TestServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ public class NotFoundController {
     private static final Logger log = Logger.getLogger(NotFoundController.class);
 
 	@Resource
-	TestService service;
+	TestServiceImpl service;
 
 	@RequestMapping("*")
 	public String notFound() {
