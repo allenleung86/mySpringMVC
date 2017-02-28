@@ -35,4 +35,14 @@ public class AllenController {
 		model.addAttribute("message", pstr);
 		return "hello";
 	}
+
+	@RequestMapping(value="/insertTest", method = RequestMethod.GET)
+	public String insertTest() {
+		int id = 123;
+		String msg = "allenabcb";
+
+		service.newContent(id, msg);
+
+		return "success";
+	}
 }
