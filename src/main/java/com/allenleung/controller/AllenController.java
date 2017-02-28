@@ -1,6 +1,7 @@
 package com.allenleung.controller;
 
 import com.allenleung.service.TestService;
+import com.allenleung.serviceImpl.TestServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,6 @@ import javax.annotation.Resource;
 public class AllenController {
 	private static final Logger log = Logger.getLogger(AllenController.class);
 
-	//@Resource
 	@Autowired
 	TestService service;
 
@@ -26,5 +26,13 @@ public class AllenController {
 		model.addAttribute( "message", "Allen, sayHello!" );
 
 		return "sayHello";
+	}
+
+	@RequestMapping(value="/printWelcome", method = RequestMethod.GET)
+	public String printWelcome(ModelMap model) {
+		String pstr = service.print(2);
+		log.info( "print str: " + pstr );
+		model.addAttribute("message", pstr);
+		return "hello";
 	}
 }

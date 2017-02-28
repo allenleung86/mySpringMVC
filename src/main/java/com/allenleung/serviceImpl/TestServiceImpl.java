@@ -4,6 +4,7 @@ import com.allenleung.dao.TestMapper;
 import com.allenleung.entity.Test;
 import com.allenleung.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
@@ -12,7 +13,6 @@ import javax.annotation.Resource;
  */
 @Service
 public class TestServiceImpl implements TestService {
-    //@Resource
     @Autowired
     TestMapper dao;
 
