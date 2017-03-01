@@ -11,14 +11,14 @@
 
     <!-- 数据库配置 -->
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/allendb?useUnicode=true&amp;characterEncoding=utf-8"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-        <property name="maxActive" value="100"/>
-        <property name="maxIdle" value="10"/>
-        <property name="minIdle" value="0"/>
-        <property name="defaultAutoCommit" value="false"/>
+        <property name="driverClassName" value="${jdbc_driverClassName}"/>
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
+        <property name="maxActive" value="${jdbc_maxActive}"/>
+        <property name="maxIdle" value="${jdbc_maxIdle}"/>
+        <property name="minIdle" value="${jdbc_minIdle}"/>
+        <property name="defaultAutoCommit" value="${jdbc_defaultAutoCommit}"/>
     </bean>
 
     <!-- 配置SqlSessionFactoryBean -->
@@ -42,9 +42,13 @@
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
+    <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- 配置properties: jdbc -->
+    <context:property-placeholder location="classpath:/config/jdbc.properties" />
 
 </beans>
