@@ -65,6 +65,10 @@
       </if>
     </trim>
   </insert>
+  <insert id="insertByAutoGenerateId" parameterType="com.allenleung.entity.Test" useGeneratedKeys="true" keyProperty="id">
+    insert into test (content)
+    values (#{content,jdbcType=VARCHAR})
+  </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.allenleung.entity.Test">
     <!--
       WARNING - @mbggenerated

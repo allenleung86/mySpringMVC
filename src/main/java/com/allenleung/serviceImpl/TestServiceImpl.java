@@ -32,8 +32,9 @@ public class TestServiceImpl implements TestService {
     @Override
     public void newContent(int id, String content) {
         Test test = new Test();
-        test.setId(id);
+        //test.setId(id);
         test.setContent(content);
+//        dao.insertByAutoGenerateId(test);
         dao.insertSelective(test);
     }
 }

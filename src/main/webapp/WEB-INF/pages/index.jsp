@@ -11,9 +11,9 @@
     <title>Welcome</title>
 </head>
 <body>
-    欢迎来到我的主页<br/>
-    <a href="http://localhost:8082/mySpringMVC/allenCtrl/sayHello.do">sayHello</a>
-    <a href="http://localhost:8082/mySpringMVC/allenCtrl/printWelcome.do">printWelcome</a>
-    <a href="http://localhost:8082/mySpringMVC/allenCtrl/insertTest.do">insertTest</a>
+    欢迎来到我的主页<br/><br/>
+    <a href="http://localhost:8082/mySpringMVC/allenCtrl/sayHello.do">sayHello</a><br/><br/>
+    <a href="http://localhost:8082/mySpringMVC/allenCtrl/printWelcome.do">printWelcome</a><br/><br/>
+    <a href="http://localhost:8082/mySpringMVC/allenCtrl/insertTest.do">insertTest</a><br/><br/>
 </body>
 </html>
