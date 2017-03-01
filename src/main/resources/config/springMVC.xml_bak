@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--使Spring支持自动检测组件，如注解的@Controller -->
-    <context:component-scan base-package="com.allenleung.controller"/>
+    <context:component-scan base-package="com.allenleung.web"/>
     <context:component-scan base-package="com.allenleung.serviceImpl"/>
 
     <!-- 数据库配置 -->
@@ -24,7 +24,7 @@
     <!-- 配置SqlSessionFactoryBean -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations" value="classpath:/mybatis/*Mapper.xml"/>
+        <property name="mapperLocations" value="classpath:/mybatis/TestMapper.xml"/>
     </bean>
 
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -49,6 +49,6 @@
     </bean>
 
     <!-- 配置properties: jdbc -->
-    <context:property-placeholder location="classpath:/config/jdbc.properties" />
+    <context:property-placeholder location="classpath:/prop/jdbc.properties" />
 
 </beans>

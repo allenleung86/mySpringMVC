@@ -1,4 +1,4 @@
-package test.com.allenleung.controller; 
+package test.com.allenleung.web;
 
 import org.junit.Test; 
 import org.junit.Before; 

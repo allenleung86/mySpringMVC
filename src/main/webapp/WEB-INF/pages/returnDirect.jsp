@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: 890170
-  Date: 2017-02-28
-  Time: 14:31
+  Date: 2017-03-01
+  Time: 14:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>success</title>
+	<title>直接返回结果</title>
 </head>
 <body>
-    录入成功!
+	${message}
 </body>
 </html>
