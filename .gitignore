@@ -1,5 +1,4 @@
 target/
-.idea/libraries/*
 .idea/workspace.xml
 src/main/resources/prop/log4j.properties
-logs/*
+logs/
