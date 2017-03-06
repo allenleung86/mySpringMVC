@@ -1,26 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--使Spring支持自动检测组件，如注解的@Controller -->
-    <context:component-scan base-package="com.allenleung.web"/>
-    <context:component-scan base-package="com.allenleung.serviceImpl"/>
+    <!--<context:component-scan base-package="com.allenleung.web"/>-->
+    <!--<context:component-scan base-package="com.allenleung.serviceImpl"/>-->
 
-    <!--  主要作用于@Controller，激活该模式，下面是一种简写形式，完全可以手动配置替代这种简写形式，它会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter，是spring MVC为@Controllers分发请求所必须的   -->
-    <!--<mvc:annotation-driven/>-->
+    <!-- 1、配置映射器与适配器 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
 
     <!-- 配置js,css等静态文件直接映射到对应的文件夹，不被DispatcherServlet处理 -->
     <!--<mvc:resourceslocation="/WEB-INF/resources/**" mapping="/resources"/>-->
 
     <!-- 配置mapper接口 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.allenleung.dao"/>
-    </bean>
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.allenleung.dao"/>-->
+    <!--</bean>-->
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -29,10 +39,10 @@
     </bean>
 
     <!-- 指定connector连接信息的属性文件的位置 -->
-    <context:property-placeholder location="classpath:/prop/jdbc.properties" />
+    <!--<context:property-placeholder location="classpath:/prop/jdbc.properties" />-->
 
     <!-- 数据库配置 -->
-    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+    <!--<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc_driverClassName}"/>
         <property name="url" value="${jdbc_url}"/>
         <property name="username" value="${jdbc_username}"/>
@@ -41,15 +51,15 @@
         <property name="maxIdle" value="${jdbc_maxIdle}"/>
         <property name="minIdle" value="${jdbc_minIdle}"/>
         <property name="defaultAutoCommit" value="${jdbc_defaultAutoCommit}"/>
-    </bean>
+    </bean>-->
 
     <!-- 数据源事务管理配置 -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
-    </bean>
+    </bean>-->
 
     <!-- 配置SqlSessionFactoryBean -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="classpath:/mybatis/TestMapper.xml"/>
     </bean>
@@ -57,9 +67,12 @@
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
         <constructor-arg index="1" value="BATCH"/>
-    </bean>
+    </bean>-->
 
     <!-- 配置properties: jdbc -->
     <!--<context:property-placeholder location="classpath:/config/jdbc.properties" />-->
+
+    <!-- 3、自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器  -->
+    <context:component-scan base-package="com.allenleung.web"/>
 
 </beans>

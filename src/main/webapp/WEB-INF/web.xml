@@ -7,12 +7,20 @@
     <display-name>Spring MVC Application</display-name>
 
     <!-- 全局范围内环境参数初始化 -->
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>classpath:/config/spring-mybatis.xml</param-value>-->
-    <!--</context-param>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/config/spring-mybatis.xml</param-value>
+    </context-param>
 
-    <!-- springMvc编码拦截器（第三启动），springMvc内置的编码拦截器 -->
+    <!-- 监听器配置 -->
+    <listener> <!-- spring监听器 -->
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener> <!-- 防止Spring内存溢出监听器  -->
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+
+    <!-- springMvc编码拦截器,springMvc内置的编码拦截器 -->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -26,33 +34,24 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--                                     监听器配置                                    -->
-    <!-- spring监听器 -->
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
-    <!-- 防止Spring内存溢出监听器  -->
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>-->
-    <!--</listener>-->
-
     <!-- servlet配置 -->
     <servlet>  <!--用来声明一个servlet的数据 -->
         <servlet-name>spring-mvc</servlet-name>
         <servlet-class>com.allenleung.servlet.ExtDispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:/config/springMVC.xml</param-value>
+            <param-value>classpath:/config/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>spring-mvc</servlet-name>
         <url-pattern>*.do</url-pattern>
+        <!--<url-pattern>/</url-pattern>-->
     </servlet-mapping>
 
-    <!--                            会话超时配置（单位为分钟）                              -->
-    <session-config><!--如果某个会话在一定时间未被访问，则服务器可以扔掉以节约内存-->
+    <!-- 会话超时配置(单位为分钟) -->
+    <session-config> <!--如果某个会话在一定时间未被访问，则服务器可以扔掉以节约内存-->
         <session-timeout>120</session-timeout>
     </session-config>
 
@@ -84,8 +83,8 @@
         <location>/WEB-INF/pages/error/500.jsp</location>
     </error-page>
     <error-page>
-        <exception-type>java.lang.Exception</exception-type><!--设置可能会发生的java异常类型,例如:java.lang.Exception-->
-        <location>/WEB-INF/pages/error/exception.jsp</location>            <!--用来设置发生错误或异常时要显示的页面-->
+        <exception-type>java.lang.Exception</exception-type> <!--设置可能会发生的java异常类型,例如:java.lang.Exception-->
+        <location>/WEB-INF/pages/error/exception.jsp</location> <!--用来设置发生错误或异常时要显示的页面-->
     </error-page>
 
 </web-app>

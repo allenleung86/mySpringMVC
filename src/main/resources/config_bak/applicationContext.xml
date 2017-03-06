@@ -30,5 +30,5 @@
     <!--<mvc:annotation-driven/>-->
 
     <!-- 导入jdbc配置 -->
-    <import resource="classpath:/config/jdbc.xml"/>
+    <import resource="classpath:/config_bak/jdbc.xml"/>
 </beans>
