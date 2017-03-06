@@ -35,9 +35,9 @@ public class AllenController {
 	@RequestMapping(value="/insertTest", method = RequestMethod.GET)
 	public String insertTest() {
 		//int id = 123;
-		String msg = "allenabcb";
+		//String msg = "allenabcb";
 
-		service.newContent(0, msg);
+		service.newContent(0, "");
 
 		return "insertTest";
 	}

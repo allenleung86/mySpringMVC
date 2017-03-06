@@ -20,8 +20,10 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `test`;
 CREATE TABLE `test` (
-  `id` int(11) NOT NULL auto_increment,
-  `content` varchar(255) DEFAULT NULL,
+--  `id` int(11) NOT NULL auto_increment,
+  `id` int(3) NOT NULL auto_increment,
+--  `content` varchar(255) DEFAULT NULL,
+  `content` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

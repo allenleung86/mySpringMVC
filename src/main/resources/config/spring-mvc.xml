@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <!--使Spring支持自动检测组件，如注解的@Controller -->
-    <context:component-scan base-package="com.allenleung"/>
+    <context:component-scan base-package="com.allenleung.web"/>
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
