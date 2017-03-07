@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <!-- 利用HandlerExceptionResolver进行统一异常处理 -->
-    <bean id="exceptionHandler" class="com.allenleung.exception.ExtExceptionHandler"/>
+    <bean id="exceptionHandler" class="com.allenleung.handler.ExtExceptionHandler"/>
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

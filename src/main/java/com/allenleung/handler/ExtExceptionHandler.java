@@ -1,7 +1,6 @@
-package com.allenleung.exception;
+package com.allenleung.handler;
 
 import org.apache.log4j.Logger;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 

@@ -1,9 +1,9 @@
 package com.allenleung.exception;
 
 /**
- * 系统业务异常
  * @author 890170
- * @date 2017-03-07 10:54
+ * @date 2017-03-07 16:12
+ * @description 系统业务异常
  */
 public class BusinessException extends RuntimeException {
 
