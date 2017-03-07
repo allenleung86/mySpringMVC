@@ -11,6 +11,7 @@
     <title>403: refuse request</title>
 </head>
 <body>
+    <img src="http://okxw7jg6g.bkt.clouddn.com/me_comic16X16.ico" height="16" width="16" /><br/>
     403: 拒绝请求
 </body>
 </html>

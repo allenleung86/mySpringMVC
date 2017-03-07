@@ -4,12 +4,15 @@ import com.allenleung.service.TestService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/allenCtrl")
+//@Transactional(propagation = Propagation.REQUIRED) //事务控制
 public class AllenController {
 	private static final Logger log = Logger.getLogger(AllenController.class);
 
@@ -21,7 +24,7 @@ public class AllenController {
 		log.info( "into returnDirect" );
 		model.addAttribute( "message", "麟, sayHe你llo!" );
 
-		return "returnDirect";
+		return "result/returnDirect";
 	}
 
 	@RequestMapping(value="/queryTest", method = RequestMethod.GET)
@@ -29,16 +32,33 @@ public class AllenController {
 		String pstr = service.print(2);
 		log.info( "print str: " + pstr );
 		model.addAttribute("message", pstr);
-		return "queryTest";
+		return "result/queryTest";
 	}
 
+	/**
+	 * @Author: 890170
+	 * @Date: 2017-03-07 16:00
+	 * @Description: 插入test表(带事务控制)
+	 */
 	@RequestMapping(value="/insertTest", method = RequestMethod.GET)
+	@Transactional(propagation = Propagation.REQUIRED) //事务控制
 	public String insertTest() {
-		//int id = 123;
-		//String msg = "allenabcb";
-
 		service.newContent(0, "");
+		service.newContent2(0, "");
 
-		return "insertTest";
+		return "result/insertTest";
+	}
+
+	/**
+	 * @Author: 890170
+	 * @Date: 2017-03-07 16:01
+	 * @Description: 插入test表(不带事务控制)
+	 */
+	@RequestMapping(value="/insertTest2", method = RequestMethod.GET)
+	public String insertTest2() {
+		service.newContent(0, "");
+		service.newContent2(0, "");
+
+		return "result/insertTest";
 	}
 }

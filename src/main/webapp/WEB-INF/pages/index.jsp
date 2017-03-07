@@ -15,5 +15,6 @@
         <a href="http://localhost:8082/mySpringMVC/allenCtrl/returnDirect.do">returnDirect</a><br/><br/>
         <a href="http://localhost:8082/mySpringMVC/allenCtrl/queryTest.do">queryTest</a><br/><br/>
         <a href="http://localhost:8082/mySpringMVC/allenCtrl/insertTest.do">insertTest</a><br/><br/>
+        <a href="http://localhost:8082/mySpringMVC/allenCtrl/insertTest2.do">insertTest2</a><br/><br/>
     </body>
 </html>

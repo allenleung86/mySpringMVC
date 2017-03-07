@@ -42,7 +42,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:/config/spring-mvc.xml</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <!--<load-on-startup>1</load-on-startup>-->
     </servlet>
     <servlet-mapping>
         <servlet-name>spring-mvc</servlet-name>
@@ -82,9 +82,9 @@
         <error-code>500</error-code>
         <location>/WEB-INF/pages/error/500.jsp</location>
     </error-page>
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type> <!--设置可能会发生的java异常类型,例如:java.lang.Exception-->
-        <location>/WEB-INF/pages/error/exception.jsp</location> <!--用来设置发生错误或异常时要显示的页面-->
-    </error-page>
+    <!--<error-page>
+        <exception-type>java.lang.Exception</exception-type> &lt;!&ndash;设置可能会发生的java异常类型,例如:java.lang.Exception&ndash;&gt;
+        <location>/WEB-INF/pages/exception/error.jsp</location> &lt;!&ndash;用来设置发生错误或异常时要显示的页面&ndash;&gt;
+    </error-page>-->
 
 </web-app>

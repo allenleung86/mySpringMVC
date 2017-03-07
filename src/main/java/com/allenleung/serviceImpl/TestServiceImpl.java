@@ -2,6 +2,7 @@ package com.allenleung.serviceImpl;
 
 import com.allenleung.dao.TestMapper;
 import com.allenleung.entity.Test;
+import com.allenleung.exception.ParameterException;
 import com.allenleung.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,21 +28,39 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED) //事务控制
     public void updateContent(int id, String content) {
         Test test = dao.selectByPrimaryKey(id);
         test.setContent(content);
         dao.updateByPrimaryKeySelective(test);
     }
 
+    /**
+     * @Author: 890170
+     * @Date: 2017-03-07 15:56
+     * @Description: 插入test表
+     */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED) //事务控制
     public void newContent(int id, String content) {
-//        test.setId(id);
-//        dao.insertByAutoGenerateId(test);
-
         Test test = new Test();
         content = "abc";
+        test.setContent(content);
+        dao.insertByAutoGenerateId(test);
+
+        test = new Test();
+        content = "efg";
+        test.setContent(content);
+        dao.insertByAutoGenerateId(test);
+    }
+
+    /**
+     * @Author: 890170
+     * @Date: 2017-03-07 15:59
+     * @Description: 插入test表
+     */
+    @Override
+    public void newContent2(int id, String content) {
+        Test test = new Test();
+        content = "abcabc";
         test.setContent(content);
         dao.insertByAutoGenerateId(test);
 

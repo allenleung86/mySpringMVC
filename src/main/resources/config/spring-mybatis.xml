@@ -58,8 +58,9 @@
     </bean>
 
     <!-- 注解事务切面 -->
-    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+    <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />-->
 
     <!--使Spring支持自动检测组件，如注解的@Controller -->
-    <context:component-scan base-package="com.allenleung.serviceImpl" />
+    <!--<context:component-scan base-package="com.allenleung.web"/>-->
+    <!--<context:component-scan base-package="com.allenleung.serviceImpl" />-->
 </beans>

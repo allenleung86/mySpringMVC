@@ -2,6 +2,7 @@ package com.allenleung.service;
 
 import com.allenleung.dao.TestMapper;
 import com.allenleung.entity.Test;
+import com.allenleung.exception.ParameterException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,4 +16,6 @@ public interface TestService {
     public void updateContent(int id, String content);
 
     public void newContent(int id, String content);
+
+    public void newContent2(int id, String content);
 }
