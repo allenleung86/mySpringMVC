@@ -3,6 +3,7 @@ package com.allenleung.web;
 import com.allenleung.service.TestService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/allenCtrl")
-//@Transactional(propagation = Propagation.REQUIRED) //事务控制
+@Transactional(propagation = Propagation.REQUIRED) //事务控制
 public class AllenController {
 	private static final Logger log = Logger.getLogger(AllenController.class);
 
 	@Autowired
-	TestService service;
+	TestService testServiceImpl2;
 
 	@RequestMapping(value="/returnDirect", method = RequestMethod.GET)
 	public String returnDirect(ModelMap model) {
@@ -29,7 +30,7 @@ public class AllenController {
 
 	@RequestMapping(value="/queryTest", method = RequestMethod.GET)
 	public String queryTest(ModelMap model) {
-		String pstr = service.print(2);
+		String pstr = testServiceImpl2.print(2);
 		log.info( "print str: " + pstr );
 		model.addAttribute("message", pstr);
 		return "result/queryTest";
@@ -43,8 +44,8 @@ public class AllenController {
 	@RequestMapping(value="/insertTest", method = RequestMethod.GET)
 	@Transactional(propagation = Propagation.REQUIRED) //事务控制
 	public String insertTest() {
-		service.newContent(0, "");
-		service.newContent2(0, "");
+		testServiceImpl2.newContent(0, "");
+		testServiceImpl2.newContent2(0, "");
 
 		return "result/insertTest";
 	}
@@ -56,8 +57,8 @@ public class AllenController {
 	 */
 	@RequestMapping(value="/insertTest2", method = RequestMethod.GET)
 	public String insertTest2() {
-		service.newContent(0, "");
-		service.newContent2(0, "");
+		testServiceImpl2.newContent(0, "");
+		testServiceImpl2.newContent2(0, "");
 
 		return "result/insertTest";
 	}

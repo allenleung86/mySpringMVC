@@ -2,24 +2,20 @@ package com.allenleung.serviceImpl;
 
 import com.allenleung.dao.TestMapper;
 import com.allenleung.entity.Test;
-import com.allenleung.exception.ParameterException;
 import com.allenleung.service.TestService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
 
 /**
  * Created by Ly on 2015/10/28.
  */
 @Service
 @Transactional(propagation = Propagation.REQUIRED) //事务控制
-public class TestServiceImpl implements TestService {
-    private static final Logger log = Logger.getLogger(TestServiceImpl.class);
+public class TestServiceImpl2 implements TestService {
+    private static final Logger log = Logger.getLogger(TestServiceImpl2.class);
 
     @Autowired
     TestMapper dao;
@@ -27,7 +23,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public String print(int id) {
         Test test = dao.selectByPrimaryKey(id);
-        log.info("into TestServiceImpl's print()");
+        log.info("into TestServiceImpl2's print()");
         return test.getContent();
     }
 
